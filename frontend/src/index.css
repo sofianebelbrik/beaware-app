@@ -1,0 +1,45 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #dff2fd; 
+  color: #0a1e3f; /* Dark blue text */
+  margin: 0;
+  padding: 0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.water-bounce {
+  font-size: 4rem;
+  animation: bounceWave 1.2s infinite ease-in-out;
+  display: inline-block;
+}
+
+.quality-container {
+  border-radius: 8px;
+  padding: 20px;
+  background-color: #0a1e3f;
+  color: white;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px 20px;
+  border-bottom: 2px solid white;
+}
+
+.score-block {
+  width: 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: monospace;
+  justify-content: flex-start;
+  margin-left: 70px;
+}
+
+
