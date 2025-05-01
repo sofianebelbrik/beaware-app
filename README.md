@@ -1,4 +1,4 @@
-💧 Water Pollution Prediction System
+💧 Water Pollution Prediction App
 
 This project is an interactive web-based UI designed to provide real-time water quality predictions based on user location. It is powered by a machine learning backend trained on over 1.6 million UK government samples (2020–2025), capable of forecasting 10 key pollutants across groundwater, rivers, and lakes.
 
@@ -11,6 +11,7 @@ Displays individual pollutant predictions (e.g., pH, ammonia, nitrates) with saf
 Aggregates results to provide an overall water quality score.
 	•	🔄 Real-Time Loader
 Custom animated spinner using CSS to indicate prediction is in progress.
+
 <img width="1440" alt="Screenshot 2025-04-16 at 21 42 36" src="https://github.com/user-attachments/assets/1ba7f31a-ad36-4586-ab1e-587b9e0518d9" />
 <img width="1440" alt="Screenshot 2025-04-16 at 21 42 57" src="https://github.com/user-attachments/assets/50697eda-851f-4048-9f0c-d5c1074948d9" />
 <img width="1440" alt="Screenshot 2025-04-16 at 21 43 07" src="https://github.com/user-attachments/assets/5b33daa0-0323-4239-8458-20b430a3e1a2" />
