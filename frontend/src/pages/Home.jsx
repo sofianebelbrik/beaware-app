@@ -39,10 +39,10 @@ export default function Home() {
   
     return (
       <div style={{ minHeight: "100vh", backgroundColor: "#dff2fd" }}>
-        {/* This stays at the top always */}
+
         <Header />
   
-        {/* This centers the table + button */}
+
         <div
           style={{
             maxWidth: "800px",
