@@ -20,27 +20,27 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Load model metadata and features
+
 MODEL_DIR = 'models'  
 FEATURES_PATH = 'feature_columns.json'
 DATA_PATH = 'data/data_final_with_features.csv'
 
-# Load feature list
+
 with open(FEATURES_PATH, 'r') as f:
     model_features_dict = json.load(f)
 
-# Load dataset and apply coordinate conversion
+
 df = pd.read_csv(DATA_PATH)
 transformer = Transformer.from_crs("epsg:27700", "epsg:4326", always_xy=True)
 df[['longitude', 'latitude']] = df.apply(lambda row: pd.Series(transformer.transform(row['sample.samplingPoint.easting'], row['sample.samplingPoint.northing'])), axis=1)
 df['sample.sampleDateTime'] = pd.to_datetime(df['sample.sampleDateTime'])
 
-# Define a request schema
+
 class LocationInput(BaseModel):
     latitude: float
     longitude: float
 
-# Time-based feature update
+
 def update_sample_to_now(row):
     now = datetime.now()
     row['sample.sampleDateTime'] = now
@@ -58,7 +58,7 @@ def update_sample_to_now(row):
 
 from math import exp
 
-# Ideal ranges and parameter weights (move these to the top of your file for clarity)
+
 ideal_ranges_by_water = {
     "GROUNDWATER": {
         'Ammonia(N)': {'min': 0.0, 'max': 0.5},
@@ -136,7 +136,7 @@ def predict_water_quality(user_location: LocationInput):
         nearest_sample = sub_df.sort_values('distance').iloc[0]
         nearest_location = nearest_sample[['latitude', 'longitude']]
 
-        # 🧭 Store distance and coordinates
+  
         nearest_sources_info[water_type] = {
             "latitude": round(nearest_sample['latitude'], 6),
             "longitude": round(nearest_sample['longitude'], 6),
@@ -180,7 +180,7 @@ def predict_water_quality(user_location: LocationInput):
         else:
             quality_scores[water_type] = None
 
-    # 🌍 Final overall score (average of all available types)
+
     overall_score = round(combined_score_sum / valid_scores, 3) if valid_scores else None
 
     return {
